@@ -1,21 +1,15 @@
 <?php
- 
-
+@session_start();
 include_once('../config/init.php');
 
-if(!isset($_SESSION['student_num'])){
-
- header("Location: ../login");
-
-}else{
-    $regnum = $_SESSION["student_num"];
-    $student_id = $_SESSION["student_num"]->id;
+    $school_id = $_SESSION["school_id"];
+    $student_id = $_SESSION["id"];
+   //var_dump($_SESSION);
    
-   
-}
+
 
         $randImages = rand(1, 4);
-        $stdTest = $getFromStudent->get_rand_images($randImages);
+      //  $stdTest = $getFromGeneric->get_rand_images($randImages);
      
 ?>
 
@@ -28,7 +22,7 @@ if(!isset($_SESSION['student_num'])){
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Test Center | Student Home</title>
+  <title>Eko Success Cloud  | Test Center</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="../assets/plugins/fontawesome-free/css/all.min.css">
@@ -50,8 +44,6 @@ if(!isset($_SESSION['student_num'])){
   <link rel="stylesheet" href="../assets/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
    <!-- Theme style -->
    <link rel="stylesheet" href="../assets/dist/css/adminlte.min.css">
-   <!-- My Style -->
-   <link rel="stylesheet" href="../assets/dist/css/mystyle.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
@@ -61,15 +53,17 @@ if(!isset($_SESSION['student_num'])){
   <!-- Toastr -->
   <link rel="stylesheet" href="../assets/plugins/toastr/toastr.min.css">
   
+    
+   <!-- TimeCircles style -->
+   <link rel="stylesheet" href="../assets/dist/css/TimeCircles.css">
+   
+
   <style>
    subNav a{
       text-decoration: none;
       color: red;
     }
-    .mydrop {
-      display: absolute;
-      min-width: 180px;
-    }
+   
     .mydrop li a {
       text-decoration: none;
       color: white;
@@ -81,60 +75,281 @@ if(!isset($_SESSION['student_num'])){
     .mydrop:hover ul li a {
       display: block;
     }
+
+    /* Absolute Center Spinner */
+.loading {
+  position: fixed;
+  z-index: 999;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.5);
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 120px;
+  height: 120px;
+  margin-top: -0.5em;
+
+  border: 15px solid red;
+  border-radius: 100%;
+  border-bottom-color: transparent;
+  -webkit-animation: spinner 1s linear 0s infinite;
+  animation: spinner 1s linear 0s infinite;
+
+
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Float cancel and delete buttons and add an equal width */
+.cancelbtn, .deletebtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add a color to the cancel button */
+.cancelbtn {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Add a color to the delete button */
+.deletebtn {
+  background-color: #f44336;
+}
+
+/* Add padding and center-align text to the container */
+.container {
+  padding: 16px;
+  text-align: center;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Modal Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and delete button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .deletebtn {
+     width: 100%;
+  }
+}
   </style>
-  <script>
-    $(`.exam`).change(function(){
-    alert('scdjsdj');
-  });
-  </script>
+
 </head>
-<body class="hold-transition layout-top-nav">
+<body class="hold-transition layout-top-nav bg-white">
 <div class="wrapper">
 
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand-md navbar-light">
-    <div class="container">
-      <a href="<?=BASE_URL?>student/student" class="navbar-brand">
-       <img src="https://ekosuccesscloud.com/learn/web/css/themes/chamilo/images/header-logo.png" alt="Smart Tester Logo" class="brand-image  elevation-0">
-          </a>
-       <!-- Left navbar links
-    <ul class="navbar-nav">
-           <li class="nav-item d-none d-sm-inline-block">
-        <a href="../assets/dashboard" class=" nav-link"  style="color: white;">Admin Portal</a>
-      </li>
-    
-    </ul>
-    -->
-   
-     <!-- Right navbar links -->
-     <ul class="navbar-nav ml-auto">
-      <!-- Messages Dropdown Menu -->
-      <!-- <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments" style="color: white;"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-      
-      </li> -->
-      <!-- Notifications Dropdown Menu -->
-      <!-- <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"  style="color: white;"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-      
-      </li> -->
-      <!-- Student Image -->
-      <li class="nav-item dropdown mydrop">
-      <a  class="navbar-brand">
-       <img src="https://ekosuccesscloud.com/learn/web/css/themes/chamilo/images/header-logo.png" alt="Smart Tester Logo" class="brand-image  elevation-0">
-          </a>
-        <!-- <ul>
-          <li><a href="includes/logout.php">Logout</a></li>
-        </ul> -->
-      </li>
-     
-    </ul>
-  </nav>
-  <!-- /.navbar -->
  
+
+<nav class="navbar navbar-expand-lg navbar-light bg-danger">
+  <!-- <a class="navbar-brand">CBT Test Page</a> -->
+  
+                           <div class="row col-md-2  " id="final_submit">
+                                 
+
+                                 <button id="submit_button"  onclick="document.getElementById('id01').style.display='block'" class="btn btn-outline-light btn-lg">
+                                   Final Submission
+                                 </button>
+                             </div>
+
+                   <div class="col-md-8 col-sm-8 col-xs-8 offset-md-4" id="exam_timer" data-timer="<?php $minute = $exam_det->time; echo $minute * 60;?>" style="width: 100px; height: 80px;"></div>
+  
+</nav>
+<div class="wrapper">
+
+
+                        <div class="navbar navbar-expand-sm navbar-main pl-md-0 pr-0" id="navbar" data-primary>
+                            <div class="container-fluid">
+                          
+
+
+                            <h2 class="mb-0 text-warning text-center"><?=$exam_det->test_name;?> </h2>
+                          
+
+                            
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+  <form class="modal-content" action="/action_page.php">
+    <div class="container">
+      <h1>Submit Test</h1>
+      <p>Are you sure you want to submit your test?</p>
+    
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="button" id="submit_conf" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+                <!-- // END Header -->
+
+  <!-- Main content -->

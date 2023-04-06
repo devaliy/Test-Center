@@ -23,151 +23,90 @@
       </div><!-- /.container-fluid -->
     </section>
     
-
-
     <!-- Main content -->
-    <section class="content subject">
-      <div class="container sub-container">
-      
-
-<div class="row">
-    
-  <?php 
-  
-$hel = $_SESSION['student_num']->id;
-//$stdTest = $getFromGeneric->get_multi('student_test_re', array('student_id'=>$_SESSION['student_num']->id), 'id', 'desc'); 
-$stdTest = $getFromGeneric->get_multi('student_test_re', array('student_id'=>$hel), 'id', 'desc'); 
-//var_dump($stdTest); 
-foreach($stdTest as $test):
-
-      $schedule_id = $test->schedule_id;
-        $subject_id = $test->subject_id;
-
-       $schedule_details = $getFromGeneric->get_single('schedule_final', array('id'=>$schedule_id), 'id', 'desc');
-        $subject_details = $getFromGeneric->get_single('subject', array('id'=>$subject_id), 'id', 'desc'); 
-  
-  ?>
-  
-  <div class="col-md-4 subject-result">
-    <!-- <span class="otisumi"> -->
-  <!-- <span data-toggle="modal" data-target="#modal-lg"> -->
-  <span data-modal-target="#modal">
-      <!-- <button data-modal-target="#modal"> -->
-      <!-- Widget: user widget style 1 -->
-    <div class="card card-widget widget-user">
-        <!-- Add the bg color to the header using any of the bg-* classes -->
-        <div class="widget-user-header">
-          <center>
-            <h3 class="widget-user-username text-white">
-              <?php
-              $get = $getFromGeneric->get_single('subject', array('id'=>$subject_id), 'id', 'desc' );
-              echo @$get->name;
-              ?></h3>
-            <h5 class="widget-user-desc text-white">
-              <?php
-                $gets = $getFromGeneric->get_single('schedule_test', array('id'=>$schedule_id), 'id', 'desc' );
-                // var_dump($gets);
-                $dow = @$gets->test;
-                $getsd = @$getFromGeneric->get_single('test', array('id'=>$dow), 'id', 'desc' );
-                echo @$getsd->test_name;
-                ?>
-            </h5>
-          </center>
-        </div>
-        <!-- End bg color -->
-        
-        <!-- Card Footer Start -->
-        <div class="card-footer">
-          <div class="row">
-
-            <div class="col-sm-6 border-right">
-              <div class="description-block">
-                <h5 class="description-header">
-                  <?php
-                    echo @$gets->session_id;
-                    $getsdt = @$getFromGeneric->get_single('session', array('id'=>$gets->session_id), 'id', 'desc' );
-                    echo @$getsdt->name;
-                  ?>
-                </h5>
-                <span class="description-text">Session</span>
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+           
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Score List Table</h3>
               </div>
-              <!-- /.description-block -->
-            </div>
-            <!-- /.col -->
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>S/N</th>
+                    <th>Test Name</th>
+                    <th>Subject</th>
+                    <th>No. of Test Taking</th>
+                    <th>Average Score</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <?php 
+                    $sn = 0;
+                    $total_question = 0;
+                    $total_round = 0;
+                    $mark = 0;
+                   
+                      $exams = $getFromGeneric->get_test_score($student_id);
+                      foreach($exams as $exam):
+                        $get_exam = $getFromGeneric->get_single('test', array('id'=>$exam->exam_id), 'id', 'desc');
+                        $total_round = $getFromGeneric->get_count('student_exam_re', array('exam_id'=>$exam->exam_id, 'student_id'=>$student_id), 'id', 'desc');
+                        $total_question = $getFromGeneric->get_count('questions', array('test_id'=>$exam->exam_id), 'id', 'desc');
+                        $get_subject = $getFromGeneric->get_single('course', array('id'=>$get_exam->subject_id), 'id', 'desc');
+                          $sn +=1;
 
-            <div class="col-sm-6 border-right">
-              <div class="description-block">
-                <h5 class="description-header">
-                  <?php
-                  $kow = @$getFromGeneric->get_single('term', array('id'=>$gets->term_id), 'id', 'desc' );
-                  echo @$kow->name;
-                  ?>
-                </h5>
-                <span class="description-text">Term</span>
+                          $get_score = $getFromGeneric->get_multi('marking_up', array('test_id'=>$exam->exam_id, 'student_id'=>$student_id), 'id', 'desc');
+                          foreach($get_score as $ind){
+                            $mark +=$ind->mark;
+                          }
+                       
+                        @$_score = $mark/($total_question * $total_round);
+                        $average_score = $_score * 100
+                      
+
+                    ?>
+                  <tr>
+                    <td><?=$sn;?></td>
+                    <td><?=$get_exam->test_name?></td>
+                    <td><?=$get_subject->title?></td>
+                    <td> <?=$total_round?></td>
+                    <td><?=$average_score?>%</td>
+                  </tr>
+
+                  <?php endforeach?>
+                 
+                 
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>S/N</th>
+                    <th>Test Name</th>
+                    <th>Subject</th>
+                    <th>No. of Test Taking</th>
+                    <th>Average Score</th>
+                  </tr>
+                  </tfoot>
+                </table>
               </div>
-              <!-- /.description-block -->
+              <!-- /.card-body -->
             </div>
-
+            <!-- /.card -->
           </div>
-          <!-- /.row -->
+          <!-- /.col -->
         </div>
-        <!-- Card Footer End -->
-
+        <!-- /.row -->
       </div>
-      <!-- /.widget-user -->
-    
-  </span>
-</div>
-
-    <!-- <div class="quiz-over">
-      <div class="box">
-        <h1>Time Up: <h1 class="setTime">10</h1>
-      <h1>
-        <span class="comment">Good try!!!</span>  <br />
-        You got <span class="correct-answers">3</span> out of <span class="total-question2">5</span> questions <br />
-        That's <span class="percentage">60%</span>
-      </h1>
-      <button type="button" id="tryAgain" onclick="tryAgain()">Try Again Later</button>
-      </div>
-    </div> -->
-
-      <!-- <div class="modal fade" id="modal-lg">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Large Modal</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>One fine body&hellip;</p>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <!-- /.modal -->
-
-      <div class="modal card card-primary card-outline" id="modal">
-        <div class="modal-header">
-          <div class="title card-title">Modal Header</div>
-          <button data-close-button class="close-button">&times;</button>
-        </div>
-        <div class="modal-body card-body card-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt nisi veniam, quo, magnam id autem eos quisquam ducimus itaque voluptates vel odio aperiam doloremque cupiditate in aliquid! Reprehenderit aliquam eaque optio consequatur facilis, nobis quibusdam itaque inventore minus voluptate dignissimos temporibus error magni ut atque incidunt voluptas. Quis unde libero architecto magni eum. Natus, asperiores, fuga dignissimos, ab incidunt iure laboriosam fugit ut cum accusantium dolorem tempore non adipisci optio. Qui eius quis voluptatum veritatis, facere aut dolores deserunt modi?
-        </div>
-      </div>
-      <div id="overlay"></div>
-
-      <?php endforeach;?>
-     
-        </div>
-      </div>
+      <!-- /.container-fluid -->
     </section>
+    <!-- /.content -->
+    
+
+
   </div>
 
 

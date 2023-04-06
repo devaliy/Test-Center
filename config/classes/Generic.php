@@ -17,9 +17,53 @@
         return $var;
     }
 
-  
+    
 
-    public function get_single($table, $fields = array(), $sort, $order)
+    public function get_All ($tables, $sort, $order){
+        $stmt = $this->pdo->prepare("SELECT * FROM $tables ORDER BY $sort $order");
+        $stmt->execute();
+        $multi = $stmt->fetchAll(PDO::FETCH_OBJ);
+      
+        return $multi; 
+    }
+
+    public function get_current_tests($tables, $class_id, $sort, $order){
+        $stmt = $this->pdo->prepare("SELECT * FROM $tables WHERE class_id = $class_id AND NOW() > startingd AND NOW() < endingd ORDER BY $sort $order");
+        $stmt->execute();
+        $multi = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        return $multi; 
+
+    }
+
+
+    public function get_count($table, $fields = array(), $sort, $order)
+    {
+        $columns = '';
+        $i       = 1;
+
+        foreach($fields as $name => $value){
+            $columns .= "`{$name}` = :{$name}";
+             if($i < count($fields)){
+                $columns .= ' AND ';
+            }
+            $i++;
+        }
+        $sql = "SELECT * FROM {$table}  WHERE {$columns} ORDER BY $sort $order";
+        if($stmt = $this->pdo->prepare($sql))
+        {
+            foreach($fields as $key => $value)
+            {
+                $stmt->bindValue(':'.$key, $value);
+            } 
+              $stmt->execute();
+              $count = $stmt->rowCount();
+       // $single = $stmt->fetch(PDO::FETCH_OBJ);
+        }
+        return $count; 
+    }
+
+    public function get_single($table, $fields = array(), $sort='', $order='')
     {
         $columns = '';
         $i       = 1;
@@ -54,6 +98,15 @@
     }
 
     
+
+    public function get_test_score($user_id){
+        $stmt = $this->pdo->prepare("SELECT DISTINCT exam_id, student_id FROM student_exam_re where student_id = $user_id");        
+        $stmt->execute();
+        $multi = $stmt->fetchAll(PDO::FETCH_OBJ);
+      
+        return $multi;
+    }
+
 
     public function get_student_classes($user_id){
         $stmt = $this->pdo->prepare("SELECT DISTINCT(usergroup_id) FROM usergroup_rel_user where user_id = $user_id");
@@ -91,16 +144,7 @@
     }
 
 
-    
-    public function get_All($table, $sort, $order)
-    {
-        $stmt = $this->pdo->prepare("SELECT * FROM $table ORDER BY `$sort` $order");
-        $stmt->execute();
-        $multi = $stmt->fetchAll(PDO::FETCH_OBJ);
       
-        return $multi;
-    }
-
 
        
  public function get_promotion($school_id, $class_id)
@@ -182,6 +226,31 @@
         }
     }
 
+    public function uploadDocXml($file)
+    {
+        $filename = basename($file['name']);
+        $fileTmp = $file['tmp_name'];
+        $fileSize = $file['size'];
+        $error = $file['error'];
+        $original = mt_rand(1111, 9999).$filename;
+
+        $ext = explode('.', $filename);
+        //$ext = strtolower($ext);
+        $allowed_ext = array('xml', 'docx', 'txt');
+
+        if(in_array($ext, $allowed_ext) === false){
+            if($error === 0){
+              //  if($fileSize <= 209272152){
+                        $fileRoot ='../assets/documents/'. $filename;
+                        $fileRoots =  $filename;
+                        move_uploaded_file($fileTmp, $fileRoot);
+                        return $fileRoots;
+
+               // }
+            }
+        }
+    }
+ 
     public function uploadDoc($file)
     {
         $filename = basename($file['name']);
@@ -192,7 +261,7 @@
 
         $ext = explode('.', $filename);
         //$ext = strtolower($ext);
-        $allowed_ext = array('pdf','doc', 'docx', 'txt');
+        $allowed_ext = array('pdf','xml', 'docx', 'txt');
 
         if(in_array($ext, $allowed_ext) === false){
             if($error === 0){

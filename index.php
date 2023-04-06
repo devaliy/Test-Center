@@ -8,7 +8,7 @@
 <base href="<?=BASE_URL?>">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Eko Success Cloud Promotion Module | xLogin</title>
+  <title>Test  Cester | Login Portal</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -29,22 +29,24 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background: limewhite;">
 <div class="login-box">
   <div class="login-logo">
-    <a href="index2.html"><b style="color: red;">Admin</b> Login</a>
+    <a href="#"><b style="color: red;">Test Center</b> Login</a>
+ 
    </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Use your Username also as the Password to Login </p>
+      <span><?php // var_dump($getFromGeneric-get_multi('staff', array('email'=>'ali@antumsoft.com', 'password'=>MD5('AliuAde')), 'id','ASC' ));?></span>
 
-      <form action="auth/staff" method="post">
+      <form action="index" method="post">
         <div class="input-group mb-3">
-          <input type="text" name="staff_code" class="form-control" placeholder="Staff ID">
+          <input type="text" name="username" class="form-control" placeholder="Username">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-user"></span>
             </div>
           </div>
         </div>
@@ -91,39 +93,51 @@
 <?php
 
 if(isset($_POST['login']) && !empty($_POST['login'])){
-	$staff_code = $_POST['staff_code'];
+	$username = $_POST['username'];
 	$password = $_POST['password'];
 
-	if(!empty($email) or !empty($password)){
-
-
-            $login_det = $getFromAdmin->login('staff', array('staff_code' => $staff_code, 'staff_code' => $password));
-           // var_dump($login_det);
-            $_SESSION['staff_det'] = $login_det;
+	if(!empty($username) or !empty($password)){
+		
+            $login_det = $getFromGeneric->login('user', array('username' => $username, 'username' => $password));
+            
             if(!$login_det){
                 echo "<script type='text/javascript'>
-      $(function() {
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 3000
-        });
-    
-          Toast.fire({
-            type: 'error',
-            title: '    Invalid Email or Password.'
-          })
-       
-      });
-    
-    </script>";
+              $(function() {
+                const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'top-end',
+                  showConfirmButton: false,
+                  timer: 3000
+                });
+            
+                  Toast.fire({
+                    type: 'error',
+                    title: 'Invalid Username or Password.'
+                  })
               
-        //echo "<script>$('#error').click()</script>";
+              });
+            
+            </script>";
+              
           
 			
-			}else{
-                    echo "<script type='text/javascript'>
+			    }else{
+            $class = $getFromGeneric->get_single('usergroup_rel_user', array('user_id'=>$login_det->id), 'id', 'desc')->usergroup_id;
+            if($login_det->roles == 'a:0:{}'){
+            $_SESSION['id'] = $login_det->id;
+              $_SESSION['class_id'] = $class;
+              $_SESSION['school_id'] = @$login_det->school_id;
+              $url = 'student/dashboard';
+             //die();
+               }else{
+              $_SESSION['staff_id'] = $login_det->id;
+                $_SESSION['class_id'] = $class;
+                $_SESSION['school_id'] = @$login_det->school_id;
+                $url = 'staff/dashboard';
+               
+                
+               }
+            echo "<script type='text/javascript'>
                     $(function() {
                         const Toast = Swal.mixin({
                         toast: true,
@@ -134,25 +148,38 @@ if(isset($_POST['login']) && !empty($_POST['login'])){
                     
                         Toast.fire({
                             type: 'success',
-                            title: ' Welcome',
+                            title: ' Welcome to Eko Test Center',
                         })
                     
                     });
                     
-
                     setInterval(() => {
-                      window.open('".BASE_URL."staff/','_self');
+                      window.open('".BASE_URL.$url."','_self');
                     }, 2000);
-              
-                    
-
                     </script>";
-            }
-
-		}
+          }
 
 
-
+	}else{
+        echo "<script type='text/javascript'>
+        $(function() {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+          });
+      
+            Toast.fire({
+              type: 'error',
+              title: '   Please Enter Username and Password.'
+            })
+         
+        });
+      
+      </script>";
+	
+	}
 }
 
 

@@ -14,7 +14,7 @@ require_once('includes/header.php');
       <div class="container">
         <div class="row mb-2">
       
-        <h3>Student Details Page</h3>
+        <h3>Question Manage Page</h3>
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -31,14 +31,7 @@ require_once('includes/header.php');
             <!-- Profile Image -->
             <div class="card  card-outline elevation-0">
             <div class="card-header">
-                <ul class=" nav nav-pills card-header-pills">
-                  <li class="nav-item"><a href="dashboard" class="nav-link">Dashboard</a></li>
-                  <li class="nav-item"><a href="#" class="nav-link">/</a></li>              
-                  <li class="nav-item"><a href="#"class="nav-link">Subject</a></li>
-                
-                  <li class="nav-item text-right"> <a href="passage" class="btn btn-info text-white">Add Pasages</a></li>
-             
-                </ul>
+              
                 <h3 class="text-center">Manage Passages</h3>
              </div>
                 <div class="card-body">
@@ -177,7 +170,7 @@ require_once('includes/header.php');
                      <div class="row"> <div class="col-md-12"><p></p></div></div>
 
                 <?php 
-                  $questions = $getFromStaff->get_multi('question', array('subject_id'=> $_GET['subj']), 'id', 'desc');
+                  $questions = $getFromGeneric->get_multi('questions', array('test_id'=> $_GET['id']), 'id', 'desc');
                   $sn = 0;
                   //var_dump($questions);
                   //echo $subject_id;

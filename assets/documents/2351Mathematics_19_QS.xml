@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2019-12-19T13:17:06">
+  <Mathematics_19_QS>
+    <QuesNo>1</QuesNo>
+    <Questions>Express, correct to three  significant figures, 0.003597</Questions>
+    <OptionA>0.359</OptionA>
+    <OptionB>0.004</OptionB>
+    <OptionC>0.0036</OptionC>
+    <OptionD>0.00359</OptionD>
+    <Answers>C</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>2</QuesNo>
+    <Questions>Evaluate (0.064)¯¹/3</Questions>
+    <OptionA> 5/2</OptionA>
+    <OptionB> ⅖ </OptionB>
+    <OptionC>  -⅖</OptionC>
+    <OptionD> -5/2</OptionD>
+    <Answers>A</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>3</QuesNo>
+    <Questions>Solve (y+1)/2-(2y-1)/3=4</Questions>
+    <OptionA>y = 19</OptionA>
+    <OptionB>y = -19 </OptionB>
+    <OptionC>y = -29 </OptionC>
+    <OptionD>y = 29</OptionD>
+    <Answers>B</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>4</QuesNo>
+    <Questions>Simplify, correct to  three significant figures, (27.63)² - (12.37)².</Questions>
+    <OptionA>614</OptionA>
+    <OptionB>612</OptionB>
+    <OptionC>611</OptionC>
+    <OptionD>610</OptionD>
+    <Answers>D</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>5</QuesNo>
+    <Questions>If 7 + y =4 (mod 8), find the  least value of y, 10≤y≤ 30.</Questions>
+    <OptionA>11</OptionA>
+    <OptionB>13</OptionB>
+    <OptionC>19</OptionC>
+    <OptionD>21</OptionD>
+    <Answers>B</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>6</QuesNo>
+    <Questions>If T = {prime numbers} and
+M= {odd numbers} are subsets of 
+ʮ = { x:0 &lt; x ≤ 10, and x is an interger},
+find(T’∩M’).
+</Questions>
+    <OptionA>{4, 6, 8, 10}</OptionA>
+    <OptionB>{1, 4, 6, 8, 10}</OptionB>
+    <OptionC>{1, 2, 4, 6, 8, 10}</OptionC>
+    <OptionD>{1, 2, 3, 5, 7, 8, 9,}</OptionD>
+    <Answers>A</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>7</QuesNo>
+    <Questions>Use the diagram to answer  this question . </Questions>
+    <OptionA>  -⅓</OptionA>
+    <OptionB> 1/2</OptionB>
+    <OptionC>  ⅓</OptionC>
+    <OptionD> -1/2</OptionD>
+    <Answers>D</Answers>
+    <Graphics>mathsq7-2019.jpg</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>8</QuesNo>
+    <Questions>If 23ᵧ =1111 two find the valu of ᵧ.</Questions>
+    <OptionA>4</OptionA>
+    <OptionB>5</OptionB>
+    <OptionC>6</OptionC>
+    <OptionD>8</OptionD>
+    <Answers>C</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>9</QuesNo>
+    <Questions>If 6, P and 14 are consecutive terms in an Arithmetic Progression (A.P), find the value of P.</Questions>
+    <OptionA>9</OptionA>
+    <OptionB>10</OptionB>
+    <OptionC>6</OptionC>
+    <OptionD>8</OptionD>
+    <Answers>B</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>10</QuesNo>
+    <Questions>Evaluate 2√28 - 3√50 + √50 + √72</Questions>
+    <OptionA>4√7 - 21√2</OptionA>
+    <OptionB>4√7 - 11√2</OptionB>
+    <OptionC>4√7 - 9√2</OptionC>
+    <OptionD>4√7 + √2</OptionD>
+    <Answers>C</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>11</QuesNo>
+    <Questions>If m : n = 2 : 1, evaluate (3m²- 2n² )/(m²+mn)</Questions>
+    <OptionA> 4/3</OptionA>
+    <OptionB> 5/3</OptionB>
+    <OptionC> 3/4</OptionC>
+    <OptionD> 3/5 </OptionD>
+    <Answers>B</Answers>
+    <Graphics>mathsq11-2019.jpg</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>12</QuesNo>
+    <Questions>H varies directly as p and inversely as the square of y. If H = 1, p = 8 and y = 2, find H in terms of p and y.</Questions>
+    <OptionA>A</OptionA>
+    <OptionB>B</OptionB>
+    <OptionC>C</OptionC>
+    <OptionD>D</OptionD>
+    <Answers>C</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>13</QuesNo>
+    <Questions>Solve  4x² - 16x + 15 = 0.</Questions>
+    <OptionA>x= 1 1/2 or x = -21/2</OptionA>
+    <OptionB>x = 11/2  or  x = 21/2</OptionB>
+    <OptionC>x = 11/2  or  x = -11/2</OptionC>
+    <OptionD>x = -11/2  or x = -21/2</OptionD>
+    <Answers>B</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>14</QuesNo>
+    <Questions>use the diagram to answer  this question . 
+</Questions>
+    <OptionA>1.639  × 10²</OptionA>
+    <OptionB>1.639 × 10¹</OptionB>
+    <OptionC>1.639  ×10¯¹</OptionC>
+    <OptionD>1.639  × 10¯²</OptionD>
+    <Answers>C</Answers>
+    <Graphics>mathsq14.jpg</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>15</QuesNo>
+    <Questions>Simplify: log₁₀ 6 - 3 log₁₀ 3 + ⅔ log₁₀ 27</Questions>
+    <OptionA>3 log₁₀²</OptionA>
+    <OptionB>log₁₀²</OptionB>
+    <OptionC>log₁₀³</OptionC>
+    <OptionD>2 log₁₀³</OptionD>
+    <Answers>B</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>16</QuesNo>
+    <Questions>Bala sold an articule for #6,900.00 and made a profit of 15%. calculate his percentage profit if he had sold it for #6,600.00
+</Questions>
+    <OptionA>5%</OptionA>
+    <OptionB>10%</OptionB>
+    <OptionC>12%</OptionC>
+    <OptionD>13%</OptionD>
+    <Answers>B</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>17</QuesNo>
+    <Questions>If 3p=4q and 9p=8q-12, find the value of pq.
+</Questions>
+    <OptionA>12</OptionA>
+    <OptionB>7</OptionB>
+    <OptionC>-7</OptionC>
+    <OptionD>-12</OptionD>
+    <Answers>A</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>18</QuesNo>
+    <Questions>If(0.25)Y= 32 find the value of y
+</Questions>
+    <OptionA> y=-5/2</OptionA>
+    <OptionB> y=-3/2</OptionB>
+    <OptionC> y=3/2</OptionC>
+    <OptionD> y=5/2</OptionD>
+    <Answers>A</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>19</QuesNo>
+    <Questions>There are * boys and 4 girls in a lift. what is the probability that the first person who steps out of the lift will be a boy?
+</Questions>
+    <OptionA> 1/6</OptionA>
+    <OptionB> 1/4</OptionB>
+    <OptionC> 1/3</OptionC>
+    <OptionD> 1/2</OptionD>
+    <Answers>C</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>20</QuesNo>
+    <Questions>Simplify:(X² -5X -14 )/(X²-9X+14)</Questions>
+    <OptionA> (X-7 )/(X+7)</OptionA>
+    <OptionB> (X+7 )/(X-7)</OptionB>
+    <OptionC>(X-2 )/(X+4)</OptionC>
+    <OptionD>(X+2 )/(X-2)</OptionD>
+    <Answers>D</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>21</QuesNo>
+    <Questions>Which of these values would make (3p-)/(p²-) undefined?
+
+</Questions>
+    <OptionA>1</OptionA>
+    <OptionB> 1/3 </OptionB>
+    <OptionC> -1/3 </OptionC>
+    <OptionD>-1</OptionD>
+    <Answers>A</Answers>
+    <Graphics>maths2019q21.jpg</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>22</QuesNo>
+    <Questions>The total surface area of a solid cylinder 165cm² if the base daimeter is 7cm,calculate its height. {take π=22/7}
+</Questions>
+    <OptionA>7.5</OptionA>
+    <OptionB>4.5</OptionB>
+    <OptionC>4</OptionC>
+    <OptionD>2</OptionD>
+    <Answers>C</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>23</QuesNo>
+    <Questions>If 2^a =√64 and b/a = 3, evaluate a^2 + b^2
+</Questions>
+    <OptionA>250</OptionA>
+    <OptionB>160</OptionB>
+    <OptionC>90</OptionC>
+    <OptionD>48</OptionD>
+    <Answers>C</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>24</QuesNo>
+    <Questions>Use the diagram to answer  this question . 
+</Questions>
+    <OptionA>31cm</OptionA>
+    <OptionB>25cm</OptionB>
+    <OptionC>20cm</OptionC>
+    <OptionD>13cm</OptionD>
+    <Answers>B</Answers>
+    <Graphics>20.jpg</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>25</QuesNo>
+    <Questions>If log_
+x⁡2 =0.3 evaluate log_x⁡8</Questions>
+    <OptionA>2.4</OptionA>
+    <OptionB>1.2</OptionB>
+    <OptionC>0.9</OptionC>
+    <OptionD>0.6</OptionD>
+    <Answers>C</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>26</QuesNo>
+    <Questions>An arc subtends an angle of 72° at the centre of a circle. find the length of the arc if the radius of the circle is 3.5cm.  {π=22/7}
+</Questions>
+    <OptionA>6.6 cm</OptionA>
+    <OptionB>8.8 cm</OptionB>
+    <OptionC>4.4 cm</OptionC>
+    <OptionD>2.2 cm</OptionD>
+    <Answers>C</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>27</QuesNo>
+    <Questions>Make b the subject of the relation
+lb =  1/2  (a + b)h.</Questions>
+    <OptionA>A</OptionA>
+    <OptionB>B</OptionB>
+    <OptionC>C</OptionC>
+    <OptionD>D</OptionD>
+    <Answers>A</Answers>
+    <Graphics>maths2019q27.jpg</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>28</QuesNo>
+    <Questions>Eric sold his house through an agent who charged 8% commission on the selling price. If Eric received $117,760 after the sale, what was the selling price of the house ?
+</Questions>
+    <OptionA>$130,000.00</OptionA>
+    <OptionB>$128,000.00</OptionB>
+    <OptionC>$125,000.00</OptionC>
+    <OptionD>$120,000.00</OptionD>
+    <Answers>B</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>29</QuesNo>
+    <Questions>Find the angle which an arc of length 22 cm subtends at the centre of a circle of radius 15cm.[Take=  π=22/7]
+</Questions>
+    <OptionA>70ᵒ</OptionA>
+    <OptionB>84ᵒ</OptionB>
+    <OptionC>96ᵒ</OptionC>
+    <OptionD>156ᵒ</OptionD>
+    <Answers>B</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>30</QuesNo>
+    <Questions>A rectangular board has length 15 cm and width x cm. if its sides are doubled, find its new area.
+</Questions>
+    <OptionA>60x cm²</OptionA>
+    <OptionB>45x cm²</OptionB>
+    <OptionC>30x cm²</OptionC>
+    <OptionD>15x cm²</OptionD>
+    <Answers>A</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>31</QuesNo>
+    <Questions>In the diagram, POS and ROT are straight lines. OPQR is a parallelogram, |OS| = |OT| and ∠OST = 50°. Calculate the value of ∠OPQ.</Questions>
+    <OptionA>100°</OptionA>
+    <OptionB>120°</OptionB>
+    <OptionC>140°</OptionC>
+    <OptionD>160°</OptionD>
+    <Answers>A</Answers>
+    <Graphics>maths2019q31.jpg</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>32</QuesNo>
+    <Questions>factorize completely: (2x + 2y )(x-y) + (2x - 2y)(x + Y).
+</Questions>
+    <OptionA>4(x -y )(x + y)</OptionA>
+    <OptionB>4(x-y)</OptionB>
+    <OptionC>2(x-y)(x+y)</OptionC>
+    <OptionD>2(x-y)</OptionD>
+    <Answers>A</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>33</QuesNo>
+    <Questions>The interior angles of a polygon are 3xᵒ,2xᵒ,4xᵒ,3xᵒ and 6xᵒ. find the size of  the smallest angle of the polygon.
+</Questions>
+    <OptionA>80ᵒ</OptionA>
+    <OptionB>60ᵒ</OptionB>
+    <OptionC>40ᵒ</OptionC>
+    <OptionD>30ᵒ</OptionD>
+    <Answers>B</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>34</QuesNo>
+    <Questions>A box contains 2 white and 3 blue identical balls. if two balls are picked at random from the box, one after the other with replacement, what is the probability that they are of different colours?
+
+</Questions>
+    <OptionA> 2/3</OptionA>
+    <OptionB> 3/5</OptionB>
+    <OptionC>  7/20</OptionC>
+    <OptionD>  12/25</OptionD>
+    <Answers>D</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>35</QuesNo>
+    <Questions>Find the equation of a straight line passing through the point (1, -5) and having gradient of 3/4
+</Questions>
+    <OptionA>3x +4y -23 =0</OptionA>
+    <OptionB>3x +4y +23 =0</OptionB>
+    <OptionC>3x - 4y +23 =0</OptionC>
+    <OptionD>3x - 4y - 23=0</OptionD>
+    <Answers>D</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>36</QuesNo>
+    <Questions>The foot of a ladder is 6m from the base of an electric pole. The top of a ladder rest against the pole at a point 8 m above the ground. How long is the ladder?
+</Questions>
+    <OptionA>14m </OptionA>
+    <OptionB>12m</OptionB>
+    <OptionC>1om</OptionC>
+    <OptionD>7m</OptionD>
+    <Answers>C</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>37</QuesNo>
+    <Questions>If tan x=3/4, 0 &lt; x &lt; 90ᵒ. evaluate cos⁡x/(2 sinx)
+</Questions>
+    <OptionA> 8/3</OptionA>
+    <OptionB> 3/2</OptionB>
+    <OptionC> 4/3</OptionC>
+    <OptionD> 2/3</OptionD>
+    <Answers>D</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>38</QuesNo>
+    <Questions>From the top of a vertical cliff 20 m high a boat at sea can be sighted 75 m away and on the same horinzontal position as the foot of the cliff. calculate, correct to the nearest degree, the angle of depression of the boat from the top of the cliff.
+</Questions>
+    <OptionA>56ᵒ</OptionA>
+    <OptionB>75ᵒ</OptionB>
+    <OptionC>16ᵒ</OptionC>
+    <OptionD>15ᵒ</OptionD>
+    <Answers>D</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>39</QuesNo>
+    <Questions>In the diagram, O is the centre of the circle of radius 18 cm. If ∠ZXY =70ᵒ , calculate  the length of arc ZY. [Take=  π=22/7]
+</Questions>
+    <OptionA>11 cm </OptionA>
+    <OptionB>22 cm </OptionB>
+    <OptionC>44 cm </OptionC>
+    <OptionD>80 cm</OptionD>
+    <Answers>C</Answers>
+    <Graphics>maths2019q39.jpg</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>40</QuesNo>
+    <Questions>
+In the diagram, RT is a tangent to the circle at R, ∠PQR = 70ᵒ, ∠QRT = 52ᵒ  ∠QSR and ∠PRQ = x.find the value of y.</Questions>
+    <OptionA>70ᵒ</OptionA>
+    <OptionB>60ᵒ</OptionB>
+    <OptionC>52ᵒ</OptionC>
+    <OptionD>18ᵒ</OptionD>
+    <Answers>B</Answers>
+    <Graphics>maths2019q40-41.jpg</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>41</QuesNo>
+    <Questions>In the diagram, RT is a tangent to the circle at R, ∠PQR = 70ᵒ, ∠QRT = 52ᵒ  ∠QSR and ∠PRQ = x. calculate the value of x.
+</Questions>
+    <OptionA>70ᵒ</OptionA>
+    <OptionB>58ᵒ</OptionB>
+    <OptionC>55ᵒ</OptionC>
+    <OptionD>48ᵒ</OptionD>
+    <Answers>B</Answers>
+    <Graphics>maths2019q40-41.jpg</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>42</QuesNo>
+    <Questions>Calculate the variance of 2,4,7,8 and 9.
+</Questions>
+    <OptionA>7.2</OptionA>
+    <OptionB>6.8</OptionB>
+    <OptionC>3.5</OptionC>
+    <OptionD>2.6</OptionD>
+    <Answers>B</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>43</QuesNo>
+    <Questions>The fourth term of an Arithmetic progression (A.P) is 37 and the first term is -20. find the common difference.
+</Questions>
+    <OptionA>63</OptionA>
+    <OptionB>57</OptionB>
+    <OptionC>19</OptionC>
+    <OptionD>17</OptionD>
+    <Answers>C</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>44</QuesNo>
+    <Questions>In the diagram, PQ is parallel to RS, ∠QFG =105ᵒ and ∠FEG =50ᵒ. Find the value of m
+</Questions>
+    <OptionA>130ᵒ</OptionA>
+    <OptionB>105ᵒ</OptionB>
+    <OptionC>75ᵒ`</OptionC>
+    <OptionD>55ᵒ</OptionD>
+    <Answers>D</Answers>
+    <Graphics>maths2019q44-45.jpg</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>45</QuesNo>
+    <Questions>In the diagram, PQ is parallel to RS, ∠QFG =105ᵒ and ∠FEG =50ᵒ. Find the value of m
+Find the value of n
+
+</Questions>
+    <OptionA>40ᵒ</OptionA>
+    <OptionB>55ᵒ</OptionB>
+    <OptionC>75ᵒ`</OptionC>
+    <OptionD>130ᵒ</OptionD>
+    <Answers>C</Answers>
+    <Graphics>maths2019q44-45.jpg</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>46</QuesNo>
+    <Questions>A box contains 5 red 6 green and yellow pencils  of the same size. What is the probability of picking a green pencil at random?
+</Questions>
+    <OptionA> 1/6</OptionA>
+    <OptionB> 1/4</OptionB>
+    <OptionC> 1/3 </OptionC>
+    <OptionD> 1/2</OptionD>
+    <Answers>C</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>47</QuesNo>
+    <Questions>The pie chart represents fruits on display in a grocery shop. If there are 60 oranges on display, How many apples are there
+</Questions>
+    <OptionA>90</OptionA>
+    <OptionB>80</OptionB>
+    <OptionC>70</OptionC>
+    <OptionD>40</OptionD>
+    <Answers>A</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>48</QuesNo>
+    <Questions>The following are scores obtained by some student in a test
+8, 18, 10, 14, 18, 11, 13, 
+14, 13, 17, 15, 8, 16, 13
+Find the mode of the distribution.
+
+</Questions>
+    <OptionA>18</OptionA>
+    <OptionB>14</OptionB>
+    <OptionC>13</OptionC>
+    <OptionD>8</OptionD>
+    <Answers>C</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>49</QuesNo>
+    <Questions>The following are scores obtained by some student in a test
+8, 18, 10, 14, 18, 11, 13, 
+14, 13, 17, 15, 8, 16, 13
+Find the median score.
+
+</Questions>
+    <OptionA>14.5</OptionA>
+    <OptionB>14</OptionB>
+    <OptionC>13.5</OptionC>
+    <OptionD>13</OptionD>
+    <Answers>C</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+  <Mathematics_19_QS>
+    <QuesNo>50</QuesNo>
+    <Questions>The following are scores obtained by some student in a test
+8, 18, 10, 14, 18, 11, 13, 
+14, 13, 17, 15, 8, 16, 13
+How many students scored above the mean score?
+
+
+</Questions>
+    <OptionA>10</OptionA>
+    <OptionB>9</OptionB>
+    <OptionC>8</OptionC>
+    <OptionD>7</OptionD>
+    <Answers>D</Answers>
+    <Graphics>None</Graphics>
+  </Mathematics_19_QS>
+</dataroot>

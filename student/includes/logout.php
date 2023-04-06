@@ -1,9 +1,10 @@
 
 <?php 
     
-    include '../../config/init.php';
-    $getFromStudent->logout();
-    if($getFromStudent->loggedIn() === false) {
-		header('Location: '.BASE_URL.'login');
-    }
+    session_start();
+   // session_abort();
+    session_destroy();
+    var_dump($_SESSION);
+	header('Location: ../../index');
+     
 ?>

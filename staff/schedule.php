@@ -31,7 +31,7 @@ require_once('includes/header.php');
             <div class="card  card-outline elevation-0">
             <div class="card-header">
                 <ul class=" nav nav-pills card-header-pills">
-                  <li class="nav-item"><a href="dashboard" class="nav-link">Dashboard</a></li>
+                  <li class="nav-item"><a href="staff/dashboard" class="nav-link">Dashboard</a></li>
                   <li class="nav-item"><a href="staff/test" class="nav-link">/</a></li>              
                   <li class="nav-item"><a href="staff/test"class="nav-link">Test Creation Page</a></li>
                 
@@ -47,70 +47,32 @@ require_once('includes/header.php');
                                 
                                 <form  method="post" enctype="multipart/form-data">
                           <div class="row">
-                          <div class="form-group col-md-6">
-                                <label class="col-md-10 control-label" >Test Name :</label>
-
-                                  
-                                <input type="text" name="names"  class="form-control"  placeholder="English 101">
-                              
-                            </div>
+                        
 
                                 <div class="form-group   col-md-6" ><!-- form-group Starts -->
-                                  <label class="col-md-12  control-label" >Select Subject</label>
+                                  <label class="col-md-12  control-label" >Select Test</label>
 
                                   <div class="col-md-12 " >
 
-                                  <select name="subject" class="form-control" >
-                                  <option value=''>Select Subject</option>
-                                  <option value='English'>English</option>
-                                  <option value='Mathematics'>Mathematics</option>
-                                  <option value='Biology'>Biology</option>
-                                  <option value='Further Math'>Further Math</option>
-                                  <option value='Economics'>Economics</option>
-                                  <option value='Literature'>Literature</option>
-                                  <option value='Computer Studies'>Computer Studies</option>
-                                  <option value='Mathematics'>Mathematics</option>
-                                  <option value='Library Studies'>Library Studies</option>
-                                  <option value='Physics'>Physics</option>
-                                  <option value='Chemistry'>Chemistry</option>
-                                  <option value='Technical Drawing'>Technical Drawing</option>
-                                  <option value='Geography'>Geography</option>
-                                  <option value='Agricultural Science'>Agricultural Science</option>
-                                  <option value='French'>French</option>
-                                  <option value='Food and Nutrition'>Food and Nutrition</option>
-                                  <option value='C. R Studies'>C. R Studies</option>
-                                  <option value='Government'>Government</option>
-                                  <option value='History'>History</option>
-                                  <option value='Geography'>Geography</option>
-                                  <option value='French'>French</option>
-                                  <option value=' Fine Arts Music'> Fine Arts Music</option>
-                                  <option value='Agricultural Science'>Agricultural Science</option>
-                                  <option value='Commerce'>Commerce</option>
-                                  <option value='Financial Accounting'>Financial Accounting</option>
-                                  <option value='Civic Education'>Civic Education</option>
-                                  <option value='Technical Drawing'>Technical Drawing</option>
-                                  <option value='Arabic'>Arabic</option>
-                                  <option value='Yoruba '>Yoruba </option>
-                                  <option value='Igbo '>Igbo </option>
-                                  <option value='Hausa'>Hausa</option>
-
+                                  <select name="test" class="form-control" >
+                                  <option value="">Select Test</option>
+                                 
                                   <?php 
-                                  /*
-                                        $get_subs = $getFromGeneric->get_All('course', 'id', 'desc');
-                                     var_dump($get_subs);
+                                  
+                                        $get_subs = $getFromGeneric->get_All('test', 'id', 'desc');
+                                     //var_dump($get_subs);
                                       foreach($get_subs as $subj):       
                                 ?>
 
 
-                                    <option value='<?=$subj->id?>'><?=$subj->title?></option>
+                                    <option value='<?=$subj->id?>'><?=$subj->test_name?></option>
                                    
-                                  <?php endforeach; */ ?>
+                                  <?php endforeach; ?>
                                   </select>
                                   </div>
 
                                 </div><!-- form-group Ends -->
-
-                                <div class="form-group col-md-6" >
+                                <div class="form-group col-md-6" ><!-- form-group Starts -->
                                   <label class="col-md-12  control-label" > Select Class </label>
 
                                  <div class="col-md-12 " >
@@ -139,24 +101,24 @@ require_once('includes/header.php');
                                  </select>
                                  </div>
 
-                                </div>
+                                </div><!-- form-group Ends -->
 
                                 <div class="form-group col-md-6" ><!-- form-group Starts -->
-                                 <label class="col-md-12  control-label" > Select Time </label>
+                                 <label class="col-md-12  control-label" > Starting  </label>
 
                                  <div class="col-md-12 " >
 
-                                  <select name="time" class="form-control" >
-                                  <option value="">Select Time</option>
-                                  
-                                  <option value='10'>10mins</option>
-                                  <option value='20'>20mins</option>
-                                  <option value='30'>30mins</option>
-                                  <option value='45'>45mins</option>
-                                  <option value='60'>1hrs</option>
-                                  <option value='90'>1hr 30mins</option>
+                                  <input type="datetime-local" name="start" class="form-control">
+                                  </div>
 
-                                  </select>
+                                </div><!-- form-group Ends -->
+
+                                <div class="form-group col-md-6" ><!-- form-group Starts -->
+                                 <label class="col-md-12  control-label" > Ending  </label>
+
+                                 <div class="col-md-12 " >
+
+                                  <input type="datetime-local" name="end" class="form-control">
                                   </div>
 
                                 </div><!-- form-group Ends -->
@@ -193,14 +155,15 @@ require_once('includes/header.php');
                           <th>S/N</th>
                           <th>Test Name</th>
                           <th>Class</th>
-                          <th>Subject</th>
-                          <th>Manage Test</th>
+                          <th>Start</th>
+                          <th>End</th>
+                          <th>Manage Schedule</th>
                       </thead>
 
                       <tbody>
 
                       <?php 
-                        $all = $getFromGeneric->get_multi('test',array('school_id'=>$_SESSION['school_id']), 'id', 'desc');
+                        $all = $getFromGeneric->get_multi('schedule_test',array('school_id'=>$_SESSION['school_id']), 'id', 'desc');
                       //var_dump($all);
                     $sn = 0;
                           foreach($all as $in):
@@ -208,14 +171,13 @@ require_once('includes/header.php');
                       ?>
                         <tr>
                         <td><?=$sn?></td>
-                         <td><?=$in->test_name?></td>
-                         
-                        <td><?=@$getFromGeneric->get_single('usergroup', array('id'=>$in->class_id), 'id', 'asc')->name;?></td>
+                          <td><?=$getFromGeneric->get_single('test', array('id'=>$in->test_id), 'id', 'asc')->test_name;?></td>
+                          <td><?=$getFromGeneric->get_single('usergroup', array('id'=>$in->class_id), 'id', 'asc')->name;?></td>
 
-                          <td> 
+                          <td>
                             
                           <?php 
-                          echo $in->subject_id;
+                          echo $in->startingd;
                           //$getFromGeneric->get_single('course', array('id'=>$in->subject_id), 'id', 'asc')->title;
                           
                           ?>
@@ -223,19 +185,31 @@ require_once('includes/header.php');
                         
                         </td>
 
+                        <td>
+                            
+                            <?php 
+                            echo $in->endingd;
+                            //$getFromGeneric->get_single('course', array('id'=>$in->subject_id), 'id', 'asc')->title;
+                            
+                            ?>
+                          
+                          
+                          </td>
+  
 
-                          <td><a class="btn btn-info" href="staff/upload_xml?id=<?=$in->id;?>">Manage</a></td>
+                          <td><a class="btn btn-danger" href="staff/schedule_del?id=<?=$in->id;?>">Delete Schedule</a></td>
                         </tr>
                          <?php endforeach?>
                       </tbody>
 
 
                       <tfoot>
-                          <th>S/N</th>
+                      <th>S/N</th>
                           <th>Test Name</th>
-                          <th>Class</th>                       
-                          <th>Subject</th>
-                          <th>Manage Test</th>
+                          <th>Class</th>
+                          <th>Start</th>
+                          <th>End</th>
+                          <th>Manage Schedule</th>
                       </tfoot>
 
                   </table>
@@ -256,14 +230,14 @@ require_once('includes/header.php');
 
   if(isset($_POST['submit'])){
 
-    $names = $_POST['names'];
-   $class = $_POST['class'];
-    $time = $_POST['time'];
-     $subject_id = $_POST['subject'];
+    $test = $_POST['test'];
+    $class = $_POST['class'];
+    $start = $_POST['start'];
+     $end = $_POST['end'];
      $staff_id = $_SESSION['staff_id'];; //$_SESSION['teacher_id'];
      $school_id = $_SESSION['school_id'];;
    
-      $createTest = $getFromGeneric->create('test',  array('class_id'=>$class,'subject_id'=>$subject_id, 'test_name'=>$names, 'time'=>$time, 'school_id'=>$school_id, 'staff_id'=>$staff_id));
+      $createTest = $getFromGeneric->create('schedule_test',  array('class_id'=>$class, 'test_id'=>$test, 'startingd'=>$start, 'endingd'=>$end, 'school_id'=>$school_id));
           
            
         if($createTest){    
@@ -275,11 +249,11 @@ require_once('includes/header.php');
               showConfirmButton: false,
               timer: 2000
             });
-            toastr.success('Test Created Successfully.');
+            toastr.success('Schedule Created Successfully.');
            });
 
            setInterval(() => {
-            window.open('staff/test','_self');
+            window.open('staff/schedule','_self');
           }, 2000);
          
         </script>";

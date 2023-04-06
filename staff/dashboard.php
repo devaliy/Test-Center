@@ -1,7 +1,6 @@
  <?php 
-  require_once('../config/init.php');
-
-    require_once('includes/header.php');
+  include('../config/init.php');
+  include('includes/header.php');
 
    // var_dump($_SESSION['school_id']);
   // $no = 1;
@@ -37,9 +36,9 @@
               <div class="card-header">
                 <ul class=" nav nav-pills card-header-pills">
                   <li class="nav-item"><a href="<?=BASE_URL?>/staff" class="nav-link">Home</a></li>
-                  <li class="nav-item"><a href="#" class="nav-link">/</a></li>              
+                  <li class="nav-item"><a  class="nav-link">/</a></li>              
                   <li class="nav-item"><a href="<?=BASE_URL?>/staff"class="nav-link"> Staff Directory</a></li>
-                  <li class="nav-item"><a href="#" class="nav-link">/</a></li>              
+                  <li class="nav-item"><a  class="nav-link">/</a></li>              
                   <li class="nav-item"><a href="<?=BASE_URL?>/staff"class="nav-link"><?=$staff->firstname.' '.$staff->lastname?></a></li>
 
                 </ul>
@@ -55,7 +54,7 @@
                     <div class="card-body">
                         <div class="row">
                           <div class="col-md-6 offset-3">
-                              <img  class="img-circle elevation-1" height="100px" width="100px" src="../assets/images/E1.png" alt="User Avatar">
+                              <!-- <img  class="img-circle elevation-1" height="100px" width="100px" src="../assets/images/E1.png" alt="User Avatar"> -->
                           </div>
                         </div>
 
@@ -118,18 +117,24 @@
                                 
                               <h4><?=$test->test_name?></h4>
                               <p>
-                                <a class="badge badge-info text-white"><?=$getFromGeneric->get_single('course',array('id'=>$test->subject_id), 'id', 'asc')->title;?></a>
+                                <a class="badge badge-info text-white">
+                              <?php 
+                                
+                                echo $test->subject_id;
+                                //$getFromGeneric->get_single('course',array('id'=>$test->subject_id), 'id', 'asc')->title;
+                                
+                              ?></a>
                                 
                                 
                                 &nbsp;&nbsp; 
                                 
-                                <a class="badge badge-primary text-white"><?=$getFromGeneric->get_single('usergroup',array('id'=>$test->class_id), 'id', 'asc')->name;?></a>
+                                <a class="badge badge-primary text-white"><?=@$getFromGeneric->get_single('usergroup',array('id'=>$test->class_id), 'id', 'asc')->name;?></a>
                                 
                             
                               </div>
                             </div>
                            <div class="card-footer">
-                           <a class="btn btn-success" href="staff/upload?id=<?=$test->id?>">Manage</a>
+                           <a class="btn btn-success" href="staff/upload_xml?id=<?=$test->id?>">Manage</a>
                            </div>
                           </div>
                         </div>

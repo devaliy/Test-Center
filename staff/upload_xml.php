@@ -45,13 +45,13 @@ require_once('includes/header.php');
                         <div class="card elevation-1">                    
                             <div class="card-body">                     
                                 
-                                <form  method="post" action="staff/upload?id=<?=$_GET['id'];?>" enctype="multipart/form-data">
+                                <form  method="post" action="staff/upload_xml?id=<?=$_GET['id'];?>" enctype="multipart/form-data">
                           <div class="row">
                               <div class="form-group col-md-6">
                                                                  
                                 <div>
                                   <label for="formFileLg" class="form-label">Select File</label>
-                                  <input class="form-control form-control-lg" name="quest" type="file" accept=".txt">
+                                  <input class="form-control form-control-lg" name="quest" type="file" accept=".xml">
                                 </div>
                               
                               </div>  
@@ -80,6 +80,7 @@ require_once('includes/header.php');
           <div class="row">
           <div class=" col-md-12">
                   <table class="table table-responsive table-striped" >
+                    <a href="staff/upload_xml?id=<?=$_GET['id']?>">Reload Page</a>
                       <thead>
                           <th>S/N</th>
                           <th width="150px">Test Name</th>
@@ -115,7 +116,7 @@ require_once('includes/header.php');
                               <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked><?=$kewu->options?>
                             </div>
 
-                            <?php endforeach?>
+                            <?php endforeach  ?>
                           </td>
                           <td>
                             <?php 
@@ -185,7 +186,7 @@ if(isset($_POST['submit'])){
   
         if(isset($_FILES['quest'])){
           if(!empty($_FILES['quest']['name'][0])){
-                  $fileRoot = $getFromGeneric->uploadDoc($_FILES['quest']);
+                  $fileRoot = $getFromGeneric->uploadDocXml($_FILES['quest']);
                 $up_file =  $getFromGeneric->create('question_file',  array('test_id'=> $test_id, 'url' => $fileRoot));
 
           
@@ -195,43 +196,56 @@ if(isset($_POST['submit'])){
 
             $get_file = @$getFromGeneric->get_single('question_file', array('id'=>$up_file), 'id', 'asc')->url;
 
-            $questions = $getFromExam->XtractQuestion('../assets/documents/'.$get_file);
-              //var_dump($questions);
-              $count = count($questions);
-              $init = 0;
-            for ($i=0; $i < count($questions); $i++) {  
-                $question = $questions[$i]['question'];
-                $options = $questions[$i]['options'];     
-                $correct = $questions[$i]['answer'];
-
-                if($correct == 'A'){
-                  $corrects = 0;
-                }else if($correct == 'B'){
-                  $corrects = 1;
-                }else if($correct == 'C'){
-                  $corrects = 2;
-                }else if($correct == 'D'){
-                  $corrects = 3;
-                }else if($correct == 'E'){
-                  $corrects = 4;
-                }
-                
-
-                    
-                $createQuestion = $getFromExam->create('questions',  array('question'=>$question, 'test_id'=>$test_id));
-                if($createQuestion){ 
-                  $init ++;
-                  //$question_id = $createQuestion;
-              
-                  $createOptions = $getFromExam->createOption($createQuestion, $corrects, $options);  
-              
-              
-
-                }
+            //$questions = $getFromExam->XtractQuestion('../assets/documents/'.$get_file);
+           // $questions = '../assets/documents/'.$get_file;
+            $xmls = simplexml_load_file('../assets/documents/'.$fileRoot);
+           
+          
+            
+              $init = count($xmls);
+          
+              $x = pathinfo($get_file, PATHINFO_FILENAME);
        
-      
-            }
-            if($init == $count ){
+           $optnum = 0;
+           foreach ($xmls->$x as $xml) {
+               
+             $optnum ++;
+             $options = [];
+             $question = (string)$xml->Questions;
+             $quest_num = (string)$xml->QuesNo;
+
+             $OptionA = (string)$xml->OptionA;
+             $OptionB = (string)$xml->OptionB;
+             $OptionC = (string)$xml->OptionC;
+             $OptionD = (string)$xml->OptionD;
+
+             array_push($options, $OptionA,  $OptionB, $OptionC, $OptionD);
+
+             $correct = (string)$xml->Answers;
+             $graphics = (string)$xml->Graphics;
+           
+             
+
+             if($correct == 'A'){
+               $corrects = 0;
+             }else if($correct == 'B'){
+               $corrects = 1;
+             }else if($correct == 'C'){
+               $corrects = 2;
+             }else if($correct == 'D'){
+               $corrects = 3;
+             }
+             
+
+                 
+             $createQuestion = $getFromGeneric->create('questions',  array('question'=>$question, 'test_id'=>$test_id, 'graphics'=>$graphics, 'questNo'=>$quest_num));
+             if($createQuestion){
+               $createOptions = $getFromExam->createOption($createQuestion, $corrects, $options);  
+             } 
+            
+            unset($options);
+         }
+           if($init == $optnum ){
                   
               echo "<script type='text/javascript'>
               $(function() {
@@ -243,9 +257,9 @@ if(isset($_POST['submit'])){
                 });
                 toastr.success(' Question Uploaded.')
               });
-              setInterval(() => {
-                window.open('staff/upload?id=".$_GET['id']."','_self'); 
-                }, 1000);
+              // setInterval(() => {
+              //   window.location.replace('staff/upload_xml?id=".$_GET['id']."'); 
+              //   }, 1000);
       
               </script>";
               
@@ -264,9 +278,9 @@ if(isset($_POST['submit'])){
                 
                 });
     
-                setInterval(() => {
-                  window.open('staff/upload?id=".$_GET['id']."','_self');
-                }, 1000);
+                // setInterval(() => {
+                //   window.location.replace('staff/upload_xml?id=".$_GET['id']."');
+                // }, 1000);
     
                             
     

@@ -19794,11 +19794,14 @@ html.maximized-card {
   color: #495057;
 }
 
-.login-page,
-.register-page {
+.login-page {
+ background: goldenrod;
+}
+  .login-page,
+  .register-page {
   -ms-flex-align: center;
   align-items: center;
-  background: #e9ecef;
+  /* background-color: red; */
   display: -ms-flexbox;
   display: flex;
   height: 100vh;

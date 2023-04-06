@@ -103,24 +103,24 @@ if(isset($_POST['login']) && !empty($_POST['login'])){
            $_SESSION['school_id'] = $login_det->school_id;
             if(!$login_det){
                 echo "<script type='text/javascript'>
-      $(function() {
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 3000
-        });
-    
-          Toast.fire({
-            type: 'error',
-            title: '    Invalid Email or Password.'
-          })
-       
-      });
-    
-    </script>";
-              
-        echo "<script>$('#error').click()</script>";
+                  $(function() {
+                    const Toast = Swal.mixin({
+                      toast: true,
+                      position: 'top-end',
+                      showConfirmButton: false,
+                      timer: 3000
+                    });
+                
+                      Toast.fire({
+                        type: 'error',
+                        title: '    Invalid Email or Password.'
+                      })
+                  
+                  });
+                
+                </script>";
+                          
+                 echo "<script>$('#error').click()</script>";
           
 			
 			}else{
