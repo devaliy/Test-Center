@@ -26,9 +26,9 @@
       
         return $multi; 
     }
-
+   
     public function get_current_tests($tables, $class_id, $sort, $order){
-        $stmt = $this->pdo->prepare("SELECT * FROM $tables WHERE class_id = $class_id AND NOW() > startingd AND NOW() < endingd ORDER BY $sort $order");
+        $stmt = $this->pdo->prepare("SELECT * FROM $tables WHERE class_id = $class_id AND  NOW() > startingd AND NOW() < endingd ORDER BY $sort $order");
         $stmt->execute();
         $multi = $stmt->fetchAll(PDO::FETCH_OBJ);
 

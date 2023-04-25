@@ -73,7 +73,7 @@
                   <tr>
                     <td><?=$sn;?></td>
                     <td><?=$get_exam->test_name?></td>
-                    <td><?=$get_subject->title?></td>
+                    <td><?=$get_exam->subject_id?></td>
                     <td> <?=$total_round?></td>
                     <td><?=$average_score?>%</td>
                   </tr>

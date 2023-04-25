@@ -16,7 +16,7 @@
       <div class="container">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h4>School Name Here</h4>
+          <h3>Test Center Dashboard <?=$class_id;?></h3>
            
           </div><!-- /.col -->
          
@@ -37,14 +37,14 @@
             <div class="card  card-outline">
               <div class="card-header">
                 <ul class=" nav nav-pills card-header-pills">
-                  <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-                  <li class="nav-item"><a href="#" class="nav-link">/</a></li>              
-                  <li class="nav-item"><a href="#"class="nav-link"> Student Profile</a></li>
-                  <li class="nav-item"><a href="#" class="nav-link">/</a></li>              
-                  <li class="nav-item"><a href="#"class="nav-link"><?=@$student->firstname.' '.@$student->lastname;?></a></li>
+                  <li class="nav-item"><a  class="nav-link">Home</a></li>
+                  <li class="nav-item"><a  class="nav-link">/</a></li>              
+                  <li class="nav-item"><a class="nav-link"> Student Profile</a></li>
+                  <li class="nav-item"><a  class="nav-link">/</a></li>              
+                  <li class="nav-item"><a class="nav-link"><?=@$student->firstname.' '.@$student->lastname;?></a></li>
 
                 </ul>
-                <h3>Test Center Dashboard</h3>
+             
               </div>
               <div class="card-body">
                 <div class="row">
@@ -87,7 +87,7 @@
                   <div class="col-md-8">
                   <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
                   <li class="nav-item">
-                      <a class="nav-link active" id="custom-content-below-bio-tab" data-toggle="pill" href="#" role="tab" aria-controls="custom-content-below-bio" aria-selected="true">Ongoing Test</a>
+                      <a class="nav-link active" id="custom-content-below-bio-tab" data-toggle="pill"  role="tab" aria-controls="custom-content-below-bio" aria-selected="true">Ongoing Test</a>
                     </li>
                     <!-- <li class="nav-item">
                       <a class="nav-link " id="custom-content-below-bio-tab1" data-toggle="pill"  role="tab" aria-controls="custom-content-below-bio1" aria-selected="true">Latest Result</a>
@@ -101,15 +101,15 @@
 <div class="row " style="padding: 20px;">
             
          <?php 
-          //echo $school_id;
+         // echo $class_id;
           $get_class = $getFromGeneric->get_single('usergroup_rel_user', array('user_id'=>$student_id), 'id', 'desc');
 
           //echo $get_class->usergroup_id; 
 
           $get_testsn = @$getFromGeneric->get_current_tests('schedule_test', $class_id, 'id', 'desc');
-
+          //  var_dump($get_testsn);
         foreach($get_testsn as $get_tests):
-
+          //  echo $get_tests->startingd;
           $test = @$getFromGeneric->get_single('test', array('id' =>$get_tests->test_id), 'id', 'desc');
 
         ?>

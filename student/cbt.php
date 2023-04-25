@@ -225,7 +225,7 @@ $(document).ready(function(){
 
         })
         .done(function(data) {
-         alert( "second success" );
+         console.log( "second success" );
           console.log(data);
           $('#cbt_header').html(data.htmlh);
           $('#cbt_body').html(data.htmlb);

@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require_once('includes/header.php');
+require_once('includes/header_prep.php');
     
 //Start Student Exam 
 if(isset($_GET['id'])){
@@ -14,18 +14,13 @@ if(isset($_GET['id'])){
   
     
         $check = $getFromGeneric->get_single('test' , array('id'=>$test_id), 'id', 'desc');
-       // var_dump($check);
+
         $subject_id = $check->subject_id;
-//     $type_id = $check->test_type;
     
         $checkd = $getFromGeneric->get_count('questions', array('test_id'=>$test_id), 'id', 'desc');
         
-        echo '<script>alert('.$checkd.')</script>';
-        // $count = 0;
-        // foreach($checkd as $cot){
-        //     $count +=1;
-        // }
-//     //var_dump($checkd);
+       // echo '<script>alert('.$checkd.')</script>';
+       
 
         $duration = $check->time;
 
@@ -35,28 +30,20 @@ if(isset($_GET['id'])){
 
         $save_re_exam = $getFromGeneric->create('student_exam_re', array('round'=>$rountd,'exam_id'=>$test_id,'duration'=>$duration, 'student_id'=>$student_id));
 
-        // $cout = 0;
-        // foreach($rountd as $cot){
-        //     $cout +=1;
-        // }
-
-//            $exam_id = $save_re_exam;
+       
               $question_no = $checkd;
-            //  echo $test_id;
-           
+          
               $exams = $getFromExam->get_rand_quest($test_id, $question_no);
-           //  var_dump($exams);
+          
         $num = 0;
-        // $round = $getFromGeneric->get_single('live_question', array('student_id'=>$student_id,'test_id'=>$test_id, ), 'id', 'desc')->round;
-        // $rounds = $round + 1;
+       
       
-      
-        var_dump($exams);
+     //   var_dump($exams);
             foreach($exams as $exam ){
                 $num +=1;
                 $q_id = $exam->id;
-               // $aa = array('numbering'=>$num, 'student_id'=>$student_id, 'question_id'=> $q_id,'round'=>$rountd, 'test_id'=>$check->id);
-               // $save_live = $getFromGeneric->create('live_question', array('numbering'=>$num, 'student_id'=>$student_id, 'question_id'=> $q_id,'round'=>$rountd, 'test_id'=>$check->id));
+               $aa = array('numbering'=>$num, 'student_id'=>$student_id, 'question_id'=> $q_id,'round'=>$rountd, 'test_id'=>$check->id);
+               $save_live = $getFromGeneric->create('live_question', array('numbering'=>$num, 'student_id'=>$student_id, 'question_id'=> $q_id,'round'=>$rountd, 'test_id'=>$check->id));
             
     
                
@@ -84,8 +71,10 @@ if(isset($_GET['id'])){
     <div class="row">
    
     <div class="col-md-2 offset-5">
-   
-    <a class="btn btn-outline-primary" href="student/cbt?test_id=<?=$test_id;?>&round=<?=$rountd?>">Start Exam </a>
+
+    
+    <div id="countdown" style="color: red; font-size: 150px;">10</div>   
+    <!-- <a class="btn btn-outline-primary" href="student/cbt?test_id=<?=$test_id;?>&round=<?=$rountd?>">Start Exam </a> -->
     </div>
 
     </div>
@@ -140,3 +129,25 @@ if(isset($_GET['id'])){
 
 
 ?>
+
+
+
+<script>
+    // Define a countdown function
+    function countdown() {
+      var count = 10;
+      var countdownElement = document.getElementById("countdown");
+      var interval = setInterval(function() {
+        countdownElement.innerHTML = count;
+        count--;
+        if (count < 0) {
+          clearInterval(interval);
+        window.location.assign('student/cbt?test_id=<?=$test_id;?>&round=<?=$rountd?>');
+        }
+      }, 1000);
+    }
+    // Call the countdown function when the page loads
+    window.onload = function() {
+      countdown();
+    };
+  </script>

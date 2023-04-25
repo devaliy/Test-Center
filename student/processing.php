@@ -15,84 +15,84 @@ if(isset($_POST['exam_id'])){
             $get = $getFromExam->get_first_question_live($exam_id, $round, $student_id);
             $current_ids = $get->question_id;
 
-        // }elseif($type == 'next'){
-        //     $current_id = $_POST['current'];         
+        }elseif($type == 'next'){
+            $current_id = $_POST['current'];         
                 
-        //     $get = $getFromExam->get_next_question_live($exam_id,  $round, $student_id, $current_id);
-        //     $current_ids = $get->question_id;            
+            $get = $getFromExam->get_next_question_live($exam_id,  $round, $student_id, $current_id);
+            $current_ids = $get->question_id;            
            
-        // }elseif($type == 'previous'){
-        //     $current_id = $_POST['current'];        
+        }elseif($type == 'previous'){
+            $current_id = $_POST['current'];        
          
             
-        //         $get = $getFromExam->get_previous_question_live($exam_id,  $round, $student_id, $current_id);
-        //         $current_ids = $get->question_id;
+                $get = $getFromExam->get_previous_question_live($exam_id,  $round, $student_id, $current_id);
+                $current_ids = $get->question_id;
     
         }
-//        $current = $get->id;
-//        $num = $get->numbering;
+       $current = $get->id;
+       $num = $get->numbering;
       
-//        $get_question = $getFromGeneric->get_single('questions', array('id'=>$get->question_id),'id', 'desc');
-//        //$get_attache = $getFromExam->get_single('attachement', array('question_id'=>$get->question_id), 'question_id', 'desc');
+       $get_question = $getFromGeneric->get_single('questions', array('id'=>$get->question_id),'id', 'desc');
+       //$get_attache = $getFromExam->get_single('attachement', array('question_id'=>$get->question_id), 'question_id', 'desc');
     
-//        $htmlb ='';
-//        $htmlh= '
-//            <div class="media align-items-center">
-//                <div class="media-left">
-//                    <h3 class="m-0 text-primary mr-2"><strong></strong></h3>
-//                </div>
-//               <div class="media-body" id=" '.$get_question->question.'">
+       $htmlb ='';
+       $htmlh= '
+           <div class="media">
+               <div class="media-left">
+                   <h3 class="m-0 text-primary mr-2"><strong></strong></h3>
+               </div>
+              <div class="media-body" id=" '.$get_question->question.'">
              
 
 
-//                    <h5 class="card-title m-0">
-//                    <strong style="color: red">('.$num. '). </strong> ' .$get_question->question.'
-//                    </h5>
-//                </div>
-//            </div>
+                   <h5 class="card-title m-0">
+                   <strong style="color: red">('.$num. '). </strong> ' .$get_question->question.'
+                   </h5>
+               </div>
+           </div>
           
-//       ';
+      ';
 
-//       if( !empty($get_attache)){
+      if( !empty($get_attache)){
 
      
       
-//       $htmlb .='
-//       <div class="row">
+      $htmlb .='
+      <div class="row">
             
      
-//            <div class="col-12" ><img class="img-fluid" src="admin/'.@$get_attache->file.'"></div>
-//            <h3 style="color: red">'.@$get_attache->instruction.'</h3><br>
+           <div class="col-12" ><img class="img-fluid" src="admin/'.@$get_attache->file.'"></div>
+           <h3 style="color: red">'.@$get_attache->instruction.'</h3><br>
     
     
-//            </div>   
-//  ';
-// }
+           </div>   
+ ';
+}
 
-//            $options = $getFromExam->get_rand_option($get->question_id);
-//            foreach($options as $option){ 
-//             $check = '';
-//                 // $option_check = $getFromExam->check_choosen_option($exam_id,  $get->question_id, $student_id);
-//                 // if($option_check){
-//                 //     if($option_check->option_id == $option->id){
-//                 //         $check = 'checked';
-//                 //     }
-//                 // }
-  
-       
-           
-//            $htmlb .='
-//                <div class="form-group">
-//                     <div class="custom-control custom-checkbox ">
-//                             <input type="radio"  id="'.$option->id.'" my_question="'.$get->question_id.'"  my_id="'.$option->id.'" name="option_button" class="answer_opt" >
-//                             <label for="'.$option->id.'">'.$option->options.'</label>
-
-//                         </div>
-//                 </div>
+           $options = $getFromExam->get_rand_option($get->question_id);
+           foreach($options as $option){ 
+                $check = '';
+                    // $option_check = $getFromExam->check_choosen_option($exam_id, $round, $get->question_id, $student_id);
+                    // if($option_check){
+                    //     if($option_check->option_id == $option->id){
+                    //         $check = 'checked';
+                    //     }
+                    // }
+    
         
-//           ';
+            
+                $htmlb .='
+                    <div class="form-group">
+                            <div class="custom-control custom-checkbox ">
+                                    <input type="radio"  id="'.$option->id.'" my_question="'.$get->question_id.'"  my_id="'.$option->id.'" name="option_button" class="answer_opt" >
+                                    <label for="'.$option->id.'">'.$option->options.'</label>
 
-//         }
+                                </div>
+                        </div>
+                
+                ';
+
+            }
        
       
         
@@ -100,21 +100,21 @@ if(isset($_POST['exam_id'])){
      
 
      
-//       if(!empty($current_ids)){
-//          $output = array(
-//                'success'	=>	true, 
-//                 'htmlh' => $htmlh,  
-//                 'htmlb' => $htmlb,  
-//                 'current' => $current
+      if(!empty($current_ids)){
+         $output = array(
+               'success'	=>	true, 
+                'htmlh' => $htmlh,  
+                'htmlb' => $htmlb,  
+                'current' => $current
                 
-//             );
-//     }else{
+            );
+    }else{
           $output = array(
                'success'	=>	false, 
               'data' => $_POST
                 
             );
-   // }
+    }
 
     
        
@@ -127,10 +127,11 @@ if(isset($_POST['option_id'])){
         $option_id = $_POST['option_id'];
         $question_id = $_POST['question_id'];
         $exam_id = $_POST['exam_id'];
+        $round = $_POST['round'];
         $student_id = $_POST['student_id'];
-   
+       // ($exam_id , $question_id, $round, $student_id)
 
-        $check_option = $getFromExam->check_marking($exam_id , $question_id,  $student_id);
+        $check_option = $getFromExam->check_marking($exam_id , $question_id,$round,   $student_id);
         
         $mark_opt = $getFromExam->get_single('options', array('id'=>$option_id), 'id', 'desc');
 

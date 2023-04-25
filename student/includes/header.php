@@ -3,14 +3,14 @@
 include_once('../config/init.php');
 
  
-if(!isset($_SESSION["id"])){
+if(!isset($_SESSION["id"])  || !isset($_SESSION["class_id"])){
   header('Location: ../index');
  }
 //  var_dump($_SESSION);
     $school_id = $_SESSION["school_id"];
     $student_id = $_SESSION["id"];
     $class_id = $_SESSION["class_id"];
-   
+ 
 
 
         $randImages = rand(1, 4);
@@ -27,7 +27,7 @@ if(!isset($_SESSION["id"])){
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Eko Success Cloud  | Test Center</title>
+  <title>  <?=$class_id?>  Eko Success Cloud  | Test Center </title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
@@ -69,7 +69,14 @@ if(!isset($_SESSION["id"])){
    <link rel="stylesheet" href="assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
   <!-- Toastr -->
   <link rel="stylesheet" href="assets/plugins/toastr/toastr.min.css">
-  
+  <style>
+    /* Style the countdown text */
+    #countdown {
+      font-size: 50px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
   <style>
    subNav a{
       text-decoration: none;
